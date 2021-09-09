@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Buttons and links
+a, button, mat-list-item, mat-list-option
+  transition: all .3s ease-in-out
+
+button:enabled:hover
+  transform: scale(1.1, 1.1)
+
+// Material icons
+.material-icons.md-14
+  height: 14px
+  width: 14px
+  font-size: 14px
+
+.material-icons.md-18
+  height: 18px
+  width: 18px
+  font-size: 18px
+
+.material-icons.md-24
+  height: 24px
+  width: 24px
+  font-size: 24px
+
+.material-icons.md-36
+  height: 36px
+  width: 36px
+  font-size: 36px
+
+.material-icons.md-48
+  height: 48px
+  width: 48px
+  font-size: 48px
+
+.mat-tab-label.mat-tab-label-active
+  opacity: 1
+
+// Overrides the default angular material styling
+// Custom mat dialog
+.customized-mat-dialog
+  max-width: 95vw !important
+
+  .mat-dialog-container 
+    padding: 0
+
+  .mat-dialog-content 
+    margin: 0
+    padding: 1em
+    max-height: 70vh
+
+  .mat-dialog-actions
+    margin-bottom: 0px
+    border-top: 1px solid #E4E4E4
+
+//Custom mat bottom sheet
+.customized-mat-bottom-sheet
+  padding: 0 !important
+  max-height: 95vh !important
