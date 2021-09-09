@@ -1,0 +1,38 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="cat">
+      <th mat-header-cell *matHeaderCellDef> CAT </th>
+      <td mat-cell *matCellDef="let element"> {{element.cat}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="ruleId">
+      <th mat-header-cell *matHeaderCellDef> Rule ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.ruleId}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="ruleTitle">
+      <th mat-header-cell *matHeaderCellDef> Rule Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.ruleTitle}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="groupId">
+      <th mat-header-cell *matHeaderCellDef> Group ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.groupId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="groupTitle">
+        <th mat-header-cell *matHeaderCellDef> Group Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.groupTitle}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="autoEval">
+        <th mat-header-cell *matHeaderCellDef> Auto Evaluation </th>
+        <td mat-cell *matCellDef="let element"> </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
