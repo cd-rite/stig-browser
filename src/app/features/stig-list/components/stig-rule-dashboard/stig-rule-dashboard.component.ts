@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { StigListService } from 'src/app/features/stig-list/services/stig-list/stig-list.service';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './stig-rule-dashboard.component.html',
   styleUrls: ['./stig-rule-dashboard.component.sass']
 })
-export class StigRuleDashboardComponent implements OnInit {
+export class StigRuleDashboardComponent implements OnInit, OnChanges {
   displayedColumns: string[] = ['cat', 'ruleId', 'ruleTitle', 'groupId', 'groupTitle', 'autoEval'];
   stigList: String;
 
@@ -21,6 +21,10 @@ export class StigRuleDashboardComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges() {
+    this.showStigList();
   }
 
   public showStigList(): void {
