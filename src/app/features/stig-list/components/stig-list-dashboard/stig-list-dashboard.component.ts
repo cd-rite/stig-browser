@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { StigListService } from 'src/app/features/stig-list/services/stig-list/stig-list.service';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -10,6 +10,8 @@ import { MatTableDataSource } from '@angular/material/table';
 export class StigListDashboardComponent implements OnInit {
   displayedColumns: string[] = ['benchmarkId', 'title', 'lastRevisionStr', 'lastRevisionDate'];
   stigList: String;
+
+  @Output() stigRuleData = new EventEmitter();
   stigRuleInfo: 
     {benchmarkId: string, revisionStr: string};  
 
@@ -35,7 +37,7 @@ export class StigListDashboardComponent implements OnInit {
 
   public getRecord(row): void {
     // console.log(row.benchmarkId);
-    this.stigRuleInfo = {benchmarkId: row.benchmarkId, revisionStr: row.lastRevisionStr};
+    this.stigRuleData.emit({benchmarkId: row.benchmarkId, revisionStr: row.lastRevisionStr});
     // this.stigRuleInfo.revisionStr = row.lastRevisionStr;
   }
   

@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StigListLandingPageComponent implements OnInit {
 
+  public clickedStig: Event;
+
+  stigRuleSelected(event: Event)  {
+    this.clickedStig = event;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

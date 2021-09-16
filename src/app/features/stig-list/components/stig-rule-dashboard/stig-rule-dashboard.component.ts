@@ -11,7 +11,7 @@ export class StigRuleDashboardComponent implements OnInit, OnChanges {
   displayedColumns: string[] = ['cat', 'ruleId', 'ruleTitle', 'groupId', 'groupTitle', 'autoEval'];
   stigList: String;
 
-  @Input() stigRuleInfo: {benchmarkId: string, revisionStr: string};  
+  @Input() event: Event;
 
 
   dataSource: MatTableDataSource<any>;
@@ -24,6 +24,7 @@ export class StigRuleDashboardComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    console.log(event);
     this.showStigList();
   }
 
