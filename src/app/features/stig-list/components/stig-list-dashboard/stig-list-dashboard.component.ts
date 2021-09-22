@@ -11,11 +11,8 @@ export class StigListDashboardComponent implements OnInit {
   displayedColumns: string[] = ['benchmarkId', 'title', 'lastRevisionStr', 'lastRevisionDate'];
   stigList: String;
 
-  @Output() stigRuleData = new EventEmitter();
-  stigRuleInfo: 
-    {benchmarkId: string, revisionStr: string};  
-
-
+  @Output() stigRuleData = new EventEmitter<object>();
+ 
   dataSource: MatTableDataSource<any>;
   constructor(private stigListService: StigListService) {
     this.showStigList();

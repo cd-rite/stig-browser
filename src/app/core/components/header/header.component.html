@@ -1,1 +1,49 @@
-<p>header works!</p>
+<header>
+    <mat-toolbar color="primary">
+        <span id="app-name">STIG Browser</span>
+        <span class="toolbar-spacer"></span>
+        <button id="profile-menu-button"
+            mat-icon-button aria-label="Profile menu"
+            [matMenuTriggerFor]="menu"
+            >
+            <fa-icon id="profile-menu-icon-button" [icon]="faUserCircle" size="2x"></fa-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <!-- <div class="profile-menu-header">
+                <fa-icon style="margin-right: 10px;" [icon]="faUser" size="lg"></fa-icon>
+                <span>{{currentUsername}}</span>
+            </div>
+            <a href="{{profileUrl}}" target="_blank">
+                <button mat-menu-item>
+                    <fa-icon class="menu-list-icons" [icon]="faIdCard" size="lg"></fa-icon>
+                    Account
+                </button>
+            </a>
+            <a href="{{logoutUrl}}">
+                <button mat-menu-item>
+                    <fa-icon class="menu-list-icons" [icon]="faSignOutAlt" size="lg"></fa-icon>
+                    Logout
+                </button>
+            </a>
+            <mat-divider></mat-divider>
+            <a href="" target="_blank">
+                <button mat-menu-item>
+                    <fa-icon class="menu-list-icons" [icon]="faInfoCircle" size="lg"></fa-icon>
+                    About
+                </button>
+            </a>
+            <a href="" target="_blank">
+                <button mat-menu-item>
+                    <fa-icon class="menu-list-icons" [icon]="faEnvelope" size="lg"></fa-icon>
+                    Contact
+                </button>
+            </a>
+            <a href="" target="_blank">
+                <button mat-menu-item>
+                    <fa-icon class="menu-list-icons" [icon]="faQuestionCircle" size="lg"></fa-icon>
+                    Help
+                </button>
+            </a> -->
+        </mat-menu>
+    </mat-toolbar>
+</header>

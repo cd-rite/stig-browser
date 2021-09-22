@@ -11,7 +11,7 @@ export class StigRuleDashboardComponent implements OnInit, OnChanges {
   displayedColumns: string[] = ['cat', 'ruleId', 'ruleTitle', 'groupId', 'groupTitle', 'autoEval'];
   stigList: String;
 
-  @Input() event: Event;
+  @Input() stigData: Event;
 
 
   dataSource: MatTableDataSource<any>;
@@ -24,12 +24,15 @@ export class StigRuleDashboardComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(event);
+    if(this.stigData) {
+    console.log(this.stigData.benchmarkId);
+    }
     this.showStigList();
   }
 
   public showStigList(): void {
-    this.stigListService.getStigRuleList('A10_Networks_ADC_ALG_STIG', 'V2R1').subscribe(
+    if(this.stigData) {
+    this.stigListService.getStigRuleList(this.stigData.benchmarkId, this.stigData.revisionStr).subscribe(
       data => {
         console.log(data);
         this.stigList = data;
@@ -37,6 +40,7 @@ export class StigRuleDashboardComponent implements OnInit, OnChanges {
 
       }
     )
+    }
   }
 
 }
