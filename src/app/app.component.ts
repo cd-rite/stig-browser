@@ -15,6 +15,7 @@ export class AppComponent {
   }
 
   authConfig: AuthConfig = {
+    //need to change to environment variables
     issuer: 'http://localhost:8080/auth/realms/stigman',
     redirectUri: 'http://localhost:4200',
     clientId: 'stig-manager',
@@ -32,7 +33,6 @@ export class AppComponent {
   public logoff() {
     this.oauthService.logOut();
   }
-
 
   private configure() {
     this.oauthService.configure(this.authConfig);

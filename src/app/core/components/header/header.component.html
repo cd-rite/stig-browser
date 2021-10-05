@@ -1,6 +1,6 @@
 <header>
-    <mat-toolbar color="primary">
-        <span id="app-name">STIG Browser</span>
+    <mat-toolbar class="stig-browser-header" color="primary">
+        <img class="panel-list-icons" src="/assets/images/shield-green-check.svg" alt="brown-bag-image">        <span id="app-name">STIG Browser</span>
         <span class="toolbar-spacer"></span>
         <button id="profile-menu-button"
             mat-icon-button aria-label="Profile menu"
@@ -9,23 +9,19 @@
             <fa-icon id="profile-menu-icon-button" [icon]="faUserCircle" size="2x"></fa-icon>
         </button>
         <mat-menu #menu="matMenu">
-            <!-- <div class="profile-menu-header">
-                <fa-icon style="margin-right: 10px;" [icon]="faUser" size="lg"></fa-icon>
-                <span>{{currentUsername}}</span>
-            </div>
-            <a href="{{profileUrl}}" target="_blank">
-                <button mat-menu-item>
+            <a>
+                <button mat-menu-item (click)="login()">
                     <fa-icon class="menu-list-icons" [icon]="faIdCard" size="lg"></fa-icon>
-                    Account
+                    Login
                 </button>
             </a>
-            <a href="{{logoutUrl}}">
-                <button mat-menu-item>
+           <a>
+                <button mat-menu-item (click)="login()">
                     <fa-icon class="menu-list-icons" [icon]="faSignOutAlt" size="lg"></fa-icon>
                     Logout
                 </button>
             </a>
-            <mat-divider></mat-divider>
+            <!--  <mat-divider></mat-divider>
             <a href="" target="_blank">
                 <button mat-menu-item>
                     <fa-icon class="menu-list-icons" [icon]="faInfoCircle" size="lg"></fa-icon>
