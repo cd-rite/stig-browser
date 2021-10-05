@@ -3,16 +3,16 @@
     <div fxLayout="row"  fxLayoutAlign="space-around start" fxLayoutGap="1em">
 
     <mat-card class="mat-elevation-z12">
-        <app-stig-list-dashboard (stigRuleData)="stigRuleSelected($event)"></app-stig-list-dashboard>
+        <app-stig-list-dashboard (stigRuleData)="stigRuleSelected($event)" (ruleDetailReset)="newStigSelected($event)"></app-stig-list-dashboard>
     </mat-card>
 
     <mat-card class="mat-elevation-z4">
       
-      <app-stig-rule-dashboard [stigData]="clickedStig"></app-stig-rule-dashboard>
+      <app-stig-rule-dashboard [stigData]="clickedStig" (ruleDetailData)="ruleDetailSelected($event)" (ruleDetailReset)="newStigSelected($event)"></app-stig-rule-dashboard>
     </mat-card>
 
     <mat-card class="mat-elevation-z4">
-      <p>test</p>
+      <app-rule-cci-details [ruleData]="clickedRule" [resetData]="clickedNewStig"></app-rule-cci-details>
     </mat-card>
     </div>
 </div>

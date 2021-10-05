@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter, ViewChild } from '@angular/core';
 import { StigListService } from 'src/app/features/stig-list/services/stig-list/stig-list.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-stig-rule-dashboard',
@@ -12,7 +14,11 @@ export class StigRuleDashboardComponent implements OnInit, OnChanges {
   stigList: String;
 
   @Input() stigData: Event;
+  @Output() ruleDetailData = new EventEmitter<object>();
+  @Output() ruleDetailReset = new EventEmitter<object>();
 
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   dataSource: MatTableDataSource<any>;
 
@@ -24,23 +30,28 @@ export class StigRuleDashboardComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    if(this.stigData) {
-    console.log(this.stigData.benchmarkId);
-    }
     this.showStigList();
   }
 
   public showStigList(): void {
     if(this.stigData) {
-    this.stigListService.getStigRuleList(this.stigData.benchmarkId, this.stigData.revisionStr).subscribe(
+    this.stigListService.getStigRuleList(this.stigData['benchmarkId'], this.stigData['revisionStr']).subscribe(
       data => {
         console.log(data);
         this.stigList = data;
         this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
 
       }
     )
     }
+  }
+
+  public getRecord(row): void {
+    this.ruleDetailData.emit({benchmarkId: this.stigData['benchmarkId'], revisionStr: this.stigData['revisionStr'], ruleId: row.ruleId})
+    this.ruleDetailReset.emit({reset: false});
+
   }
 
 }

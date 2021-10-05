@@ -8,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class StigListLandingPageComponent implements OnInit {
 
   public clickedStig: Event;
+  public clickedRule: Event;
+  public clickedNewStig: Event;
 
   stigRuleSelected(event: Event)  {
     this.clickedStig = event;
+  }
+
+  ruleDetailSelected(event: Event) {
+    this.clickedRule = event;
+  }
+
+  newStigSelected(event: Event) {
+    this.clickedNewStig = event;
   }
 
   constructor() { }
